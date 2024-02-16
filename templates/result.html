@@ -1,0 +1,281 @@
+<!-- templates/Result.html -->
+{% extends 'FE_App.html' %}
+
+{% block content %}
+    <h1>Result</h1>
+    <!-- <p id="modelNameDisplay">Model:  <span></span></p> -->
+
+    <p style="text-align: center; color: white; font-weight: bold; animation: blinker 1s linear infinite;">
+        Model Name: <span id="modelNameDisplay"><span></span></p>
+
+    <!-- Display Result Table -->
+    <h2>Result Table</h2>
+    <table id="resultTable" class="table">
+        <thead>
+            <tr>
+                <th>Prediction</th>
+                {% if hasProbabilities %}
+                    <th>Probability</th>
+                {% endif %}
+            </tr>
+        </thead>
+        <tbody id="resultBody">
+            <!-- Results will be populated here -->
+        </tbody>
+    </table>
+    <div id="paginationButtons">
+        <button onclick="showPreviousPage()">Previous</button>
+        <button onclick="showNextPage()">Next</button>
+    </div>
+    <!-- Buttons for Navigation and Download -->
+    <div>
+        <h3>Result Navigation and Download</h3>
+        <button onclick="navigateToDeployment()">Setup Model for Deployment</button>
+        <button onclick="downloadResultAsCSV()">Download Result as CSV</button>
+        <button onclick="downloadResultAsExcel()">Download Result as Excel</button>
+        <button onclick="downloadResultAsPDF()">Download Result as PDF</button>
+    </div>
+    <!-- Model Evaluation Results -->
+    <h2>Model Evaluation Results</h2>
+    <table id="evaluationTable" class="table">
+        <thead>
+            <tr>
+                <th>Metric</th>
+                <th>Value</th>
+            </tr>
+        </thead>
+        <tbody id="evaluationBody">
+            <!-- Evaluation results will be populated here -->
+        </tbody>
+    </table>
+
+    <div>
+        <h3>Evaluation Results Navigation and Download</h3>
+        <button onclick="navigateToEvaluationDeployment()">Setup Model for Deployment</button>
+        <button onclick="downloadEvaluationAsCSV()">Download Evaluation as CSV</button>
+        <button onclick="downloadEvaluationAsExcel()">Download Evaluation as Excel</button>
+        <button onclick="downloadEvaluationAsPDF()">Download Evaluation as PDF</button>
+    </div>
+
+    <!-- CSS for Blinking Effect -->
+    <style>
+        @keyframes blinker {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.5;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+
+    <!-- Include your JavaScript file -->
+    <script src="{{ url_for('static', filename='result_script.js') }}"></script>
+    <script>
+        // Function to populate a table with headers and data
+        function populateTable(tableId, headers, ...dataArrays) {
+            const table = document.getElementById(tableId);
+            const headerRow = table.querySelector('thead');
+            const body = table.querySelector('tbody');
+
+            // Populate headers
+            let headerHtml = '';
+            headers.forEach(header => {
+                headerHtml += `<th>${header}</th>`;
+            });
+            headerRow.innerHTML = `<tr>${headerHtml}</tr>`;
+
+            // Populate data rows
+            const numRows = Math.max(...dataArrays.map(arr => arr.length));
+            let bodyHtml = '';
+            for (let i = 0; i < numRows; i++) {
+                let rowHtml = '';
+                dataArrays.forEach((dataArray, index) => {
+                    const cellValue = dataArray[i] !== undefined ? dataArray[i] : 0;
+                    rowHtml += `<td>${cellValue}</td>`;
+                });
+                bodyHtml += `<tr>${rowHtml}</tr>`;
+            }
+            body.innerHTML = bodyHtml;
+        }
+        // Define variables for pagination
+        const itemsPerPage = 5;
+        let currentPage = 1;
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Retrieve data from the URL query parameter
+            const urlParams = new URLSearchParams(window.location.search);
+            const predictions = JSON.parse(urlParams.get('prediction_r')) || { Predictions: [], Probabilities: [] };
+            // const resultTableHeaders = ['Prediction', 'Probability'];  // Headers for the result table
+            // Determine the headers based on the presence of probabilities
+            const hasProbabilities = predictions.Probabilities && predictions.Probabilities.length > 0;
+            const resultTableHeaders = hasProbabilities ? ['Prediction', 'Probability'] : ['Prediction'];
+
+            console.log(predictions)
+            const modelName = urlParams.get('model_name');
+            const evaluationTableData = [];  // You may update this based on your actual evaluation data
+            console.log(predictions.Predictions)
+
+            // Display the model name
+            document.getElementById('modelNameDisplay').querySelector('span').textContent = modelName || 'Not Provided';
+
+            // Populate Result Table
+            // populateTable('resultTable', resultTableHeaders, predictions.Predictions, predictions.Probabilities);
+            if (hasProbabilities) {
+                populateTable('resultTable', resultTableHeaders, predictions.Predictions, predictions.Probabilities);
+            } else {
+                const flatPredictions = predictions.Predictions.flat();
+                populateTable('resultTable', resultTableHeaders, flatPredictions);
+            }
+
+            // Populate Model Evaluation Results Table
+            populateTable('evaluationTable', ['Metric', 'Value'], evaluationTableData);
+
+            // Add event listeners for buttons
+            document.getElementById('downloadCSV').addEventListener('click', downloadResultAsCSV);
+            document.getElementById('downloadExcel').addEventListener('click', downloadResultAsExcel);
+            document.getElementById('downloadPDF').addEventListener('click', downloadResultAsPDF);
+
+            // Similarly, for evaluation table buttons
+            document.getElementById('downloadEvaluationCSV').addEventListener('click', downloadEvaluationAsCSV);
+            document.getElementById('downloadEvaluationExcel').addEventListener('click', downloadEvaluationAsExcel);
+            document.getElementById('downloadEvaluationPDF').addEventListener('click', downloadEvaluationAsPDF);
+
+            // If there's a button for navigation to deployment
+            document.getElementById('navigateToDeployment').addEventListener('click', navigateToDeployment);
+
+            // If there's a button for navigation to evaluation deployment
+            document.getElementById('navigateToEvaluationDeployment').addEventListener('click', navigateToEvaluationDeployment);
+
+            // Update pagination based on the initial data
+            updatePagination();
+        });
+
+        function updatePagination() {
+            const resultTable = document.getElementById('resultTable');
+            const totalItems = resultTable.rows.length - 1; // Exclude header row
+
+            // Calculate the total number of pages
+            const totalPages = Math.ceil(totalItems / itemsPerPage);
+
+            // Display only the relevant rows based on pagination
+            for (let i = 1; i < resultTable.rows.length; i++) {
+                const display = i > (currentPage - 1) * itemsPerPage && i <= currentPage * itemsPerPage;
+                resultTable.rows[i].style.display = display ? '' : 'none';
+            }
+
+            // Disable/enable pagination buttons based on the current page
+            const paginationButtons = document.getElementById('paginationButtons');
+            paginationButtons.querySelector('button:first-child').disabled = currentPage === 1;
+            paginationButtons.querySelector('button:last-child').disabled = currentPage === totalPages;
+        }
+
+        function showPreviousPage() {
+            if (currentPage > 1) {
+                currentPage--;
+                updatePagination();
+            }
+        }
+
+        function showNextPage() {
+            const resultTable = document.getElementById('resultTable');
+            const totalItems = resultTable.rows.length - 1; // Exclude header row
+            const totalPages = Math.ceil(totalItems / itemsPerPage);
+
+            if (currentPage < totalPages) {
+                currentPage++;
+                updatePagination();
+            }
+        }
+
+
+        // Logic for Result Table Navigation and Download
+        function navigateToDeployment() {
+            // Extract username from the session (replace 'sessionUsername' with your actual session variable)
+            const sessionUsername = sessionStorage.getItem('username'); // Replace with your actual session variable
+
+            // Extract model_filename from the URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const modelFilename = urlParams.get('model_filename');
+
+
+            // Encode values to ensure they are URL-safe
+            const encodedUsername = encodeURIComponent(sessionUsername);
+            const encodedModelFilename = encodeURIComponent(modelFilename);
+
+            // Declare username outside the if block
+            let username;
+
+            const handleRedirection = () => {
+                // console.log(`Redirecting to /result?${username}${predictionResultQueryParam}${modelNameQueryParam}`);
+                // // Redirect to the result page with the prediction result
+                // window.location.href = `/result?${username}&${predictionResultQueryParam}${modelNameQueryParam}${modelFilenameQueryParam}`;
+
+                // Construct the URL with parameters
+                const url = `/deploy_setup?username=${username}&model_filename=${encodedModelFilename}`;
+
+                // Navigate to the next page
+                window.location.href = url;
+            };
+
+            const usernameElement = document.querySelector('.user-profile .username');
+            if (usernameElement) {
+                // Extract the username text
+                username = usernameElement.textContent.trim();
+
+                // Use the extracted username as needed
+                console.log('Username:', username);
+
+                // Call the redirection function
+                handleRedirection();
+            } else {
+                console.error('Username element not found.');
+
+                // If the username element is not found, you may still want to call the redirection function
+                // with an undefined or default username
+                handleRedirection();
+            }
+
+            //  // Construct the URL with parameters
+            // const url = `/deploy_setup?username=${username}&model_filename=${encodedModelFilename}`;
+
+            // // Navigate to the next page
+            // window.location.href = url;
+
+            // window.location.href = "/deploy_setup";
+        }
+
+        function downloadResultAsCSV() {
+            // Logic to download the result as CSV
+        }
+
+        function downloadResultAsExcel() {
+            // Logic to download the result as Excel
+        }
+
+        function downloadResultAsPDF() {
+            // Logic to download the result as PDF
+        }
+
+        // Logic for Evaluation Table Navigation and Download
+        function navigateToEvaluationDeployment() {
+            window.location.href = "/deploy_setup";
+        }
+
+        function downloadEvaluationAsCSV() {
+            // Logic to download the evaluation result as CSV
+        }
+
+        function downloadEvaluationAsExcel() {
+            // Logic to download the evaluation result as Excel
+        }
+
+        function downloadEvaluationAsPDF() {
+            // Logic to download the evaluation result as PDF
+        }
+    </script>
+{% endblock %}
+

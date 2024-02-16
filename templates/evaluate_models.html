@@ -1,0 +1,87 @@
+<!-- templates/evaluate_model.html -->
+{% extends 'FE_App.html' %}
+
+{% block content %}
+    <h1>Evaluate Model</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Model Name</th>
+                <th>Accuracy</th>
+                <th>Select</th>
+            </tr>
+        </thead>
+        <tbody id="evaluateModelsTableBody"></tbody>
+    </table>
+
+    <!-- Add a button or form to trigger evaluation for the selected model -->
+    <button onclick="evaluateSelectedModel()">Evaluate Selected Model</button>
+
+    <script src="{{ url_for('static', filename='flask_app_script.js') }}"></script>
+    <script>
+        function evaluateSelectedModel() {
+            // Get the selected model filename
+            const selectedModelFilename = document.querySelector('input[name="selectedModel"]:checked');
+
+            // Check if a model is selected
+            if (selectedModelFilename) {
+                // Assuming you have a route named 'evaluate_model' for evaluating a specific model
+                const evaluationUrl = "{{ url_for('evaluate_model', model_name='') }}" + selectedModelFilename.value;
+
+                // Redirect to the evaluation page for the selected model
+                window.location.href = evaluationUrl;
+            } else {
+                alert('Please select a model to evaluate.');
+            }
+        }
+
+        // Update the populateModelsTable function
+        function populateModelsTable(modelsInfo) {
+            const evaluateModelsTableBody = document.getElementById("evaluateModelsTableBody");
+            evaluateModelsTableBody.innerHTML = ""; // Clear existing rows
+
+            if (modelsInfo && Array.isArray(modelsInfo.models)) {
+                modelsInfo.models.forEach(modelInfo => {
+                    const row = document.createElement("tr");
+
+                    const modelNameCell = document.createElement("td");
+                    modelNameCell.textContent = modelInfo.model_name;
+
+                    const accuracyCell = document.createElement("td");
+                    accuracyCell.textContent = modelInfo.accuracy ? modelInfo.accuracy.toFixed(2) : "N/A";
+
+                    const selectCell = document.createElement("td");
+
+                    const radioButton = document.createElement("input");
+                    radioButton.type = "radio";
+                    radioButton.name = "selectedModel";
+                    radioButton.value = modelInfo.model_filename;
+
+                    selectCell.appendChild(radioButton);
+
+                    row.appendChild(modelNameCell);
+                    row.appendChild(accuracyCell);
+                    row.appendChild(selectCell);
+
+                    evaluateModelsTableBody.appendChild(row);
+                });
+            } else {
+                console.error("Invalid or missing models data:", modelsInfo);
+            }
+        }
+
+        // Fetch models data and populate the table
+        fetch("{{ url_for('get_models') }}")
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log("Received data:", data);
+                populateModelsTable(data);
+            })
+            .catch(error => console.error('Error:', error));
+    </script>
+{% endblock %}

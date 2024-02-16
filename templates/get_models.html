@@ -1,0 +1,129 @@
+{% extends 'FE_App.html' %}
+
+{% block content %}
+    <h1>Get Models</h1>
+    <table id="modelsTable">
+        <thead>
+            <tr>
+                <th>Model Name</th>
+                <th>Accuracy</th>
+                <th>Model Filename</th>
+                <th>Select</th>
+            </tr>
+        </thead>
+        <tbody id="modelsTableBody"></tbody>
+    </table>
+
+    <button onclick="navigateToPredict()">Submit</button>
+
+    <script src="{{ url_for('static', filename='flask_app_script.js') }}"></script>
+
+    <script>
+        function navigateToPredict() {
+            var selectedModelElement = document.querySelector('input[type="radio"][name="selectedModel"]:checked');
+            var selectedModel = selectedModelElement ? selectedModelElement.value : null;
+            var selectedModelFilename = selectedModelElement ? selectedModelElement.filename : null;
+
+            if (selectedModel && selectedModelFilename) {
+                // window.location.href = "/cre_dict?model_name=" + encodeURIComponent(selectedModel);
+                window.location.href = `/cre_dict?model_name=${encodeURIComponent(selectedModel)}&model_filename=${encodeURIComponent(selectedModelFilename)}`;
+            
+            } else {
+                console.error('Error: No model selected.');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            
+            function populateModelsTable(modelsInfo) {
+                // console.log(modelsInfo);
+                const modelsTableBody = document.getElementById("modelsTableBody");
+                modelsTableBody.innerHTML = ""; // Clear existing rows
+        
+                if (modelsInfo && Array.isArray(modelsInfo.models)) {
+                    modelsInfo.models.forEach(modelInfo => {
+                        const row = document.createElement("tr");
+                        const modelNameCell = document.createElement("td");
+                        modelNameCell.textContent = modelInfo.Model;
+        
+                        const modelFileNameCell = document.createElement("td");
+                        modelFileNameCell.textContent = modelInfo.Model_Filename;
+        
+                        // const accuracyCell = document.createElement("td");
+                        // accuracyCell.textContent = (modelInfo.Accuracy * 100).toFixed(2);
+
+                        // Create cell for accuracy or RMSE based on model type
+                        const accuracyCell = document.createElement("td");
+                        const accuracyKey = Object.keys(modelInfo).find(key => key.toLowerCase().includes('accuracy'));
+                        const rmseKey = Object.keys(modelInfo).find(key => key.toLowerCase().includes('rmse'));
+
+                        if (rmseKey) {
+                            // For regression models, display RMSE
+                            accuracyCell.textContent = modelInfo[rmseKey].toFixed(2);
+                        } else if (accuracyKey) {
+                            // For classification models, display Accuracy
+                            const accuracyValue = (modelInfo[accuracyKey] * 100).toFixed(2);
+                            accuracyCell.textContent = isNaN(accuracyValue) ? 'NaN' : accuracyValue;
+                        } else {
+                            // Handle other model types as needed
+                            accuracyCell.textContent = 'N/A';
+                        }
+
+                        // Log accuracy values for debugging
+                        // console.log(`Model: ${modelInfo.Model}, Accuracy: ${accuracyKey ? modelInfo[accuracyKey] : 'N/A'}, RMSE: ${rmseKey ? modelInfo[rmseKey] : 'N/A'}`);
+                        // ...
+        
+                        const selectCell = document.createElement("td");
+                        const radioButton = document.createElement("input");
+                        radioButton.type = "radio";
+                        radioButton.name = "selectedModel";
+                        radioButton.value = modelInfo.Model;
+                        radioButton.filename = modelInfo.Model_Filename; // Store filename as a data attribute
+
+        
+                        if (!document.querySelector('input[type="radio"][name="selectedModel"]:checked')) {
+                            radioButton.checked = true;
+                        }
+
+                        radioButton.addEventListener("change", function () {
+                            const selectedModelFilename = document.querySelector('input[type="radio"][name="selectedModel"]:checked').filename;
+                            // console.log("Selected Model Filename:", selectedModelFilename);                            
+                        });
+        
+                        radioButton.addEventListener("change", function () {
+                            const selectedModelName = document.querySelector('input[type="radio"][name="selectedModel"]:checked').value;
+                            console.log("Selected Model Name:", selectedModelName);                            
+                        });
+        
+                        selectCell.appendChild(radioButton);
+                        row.appendChild(modelNameCell);
+                        row.appendChild(accuracyCell);
+                        row.appendChild(modelFileNameCell);
+                        row.appendChild(selectCell);
+                        modelsTableBody.appendChild(row);
+                    });
+                } else {
+                    console.error("Invalid or missing models data:", modelsInfo);
+                    // Update status message if required
+                }
+            }
+        
+            fetch("/get_models")
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if ('models' in data && Array.isArray(data.models)) {
+                        populateModelsTable(data);
+                    } else {
+                        console.error("Invalid or missing models data:", data);
+                        // Update status message if required
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        });
+    </script>
+{% endblock %}

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        #cards-section {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .api-summary-card {
+            flex: 1;
+            margin: 0 10px;
+            max-width: 200px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        #model-list-section,
+        #project-list-section,
+        #api-table-section {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        #model-list,
+        #project-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #api-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        #api-table th,
+        #api-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <h1>API Dashboard</h1>
+
+    <!-- Cards Section -->
+    <div id="cards-section">
+        <div class="api-summary-card">
+            <h3>API Count</h3>
+            <p id="api-count">Loading...</p>
+        </div>
+        <!-- Add other API summary cards as needed -->
+    </div>
+
+    <!-- Model List Section -->
+    <div id="model-list-section">
+        <h2>Model List</h2>
+        <ul id="model-list">
+            <!-- Model list items will be populated dynamically -->
+        </ul>
+    </div>
+
+    <!-- Project List Section -->
+    <div id="project-list-section">
+        <h2>Project List</h2>
+        <ul id="project-list">
+            <!-- Project list items will be populated dynamically -->
+        </ul>
+    </div>
+
+    <!-- API Table Section -->
+    <div id="api-table-section">
+        <h2>API Table</h2>
+        <table id="api-table">
+            <thead>
+                <tr id="api-table-headers">
+                    <!-- Table headers will be populated dynamically -->
+                </tr>
+            </thead>
+            <tbody>
+                <!-- API details will be populated dynamically -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Deploy Model Modal -->
+    <div id="deploy-model-modal" class="modal">
+        <!-- Modal content will be populated dynamically using JavaScript -->
+    </div>
+
+    <script src="api.js"></script>
+
+</body>
+</html>

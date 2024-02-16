@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI - ML Core</title>
+    {% if url_for('home') == url_for(request.endpoint) %}
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #fdfcfa;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                height: 100vh;
+            }
+       
+                
+            header {
+                width: 100%;
+                background-color: #e77e05;
+                padding: 10px 0;
+                text-align: center;
+            }
+        
+            h1 {
+                margin: 0;
+            }
+        
+            nav ul {
+                list-style: none;
+                display: flex;
+                justify-content: center;
+                margin: 10px 0;
+                padding: 0;
+            }
+        
+            nav li {
+                margin-right: 20px; /* Adjust as needed */
+            }
+            #container {
+                display: flex;
+                justify-content: space-between;
+                max-width: 100%; /* Adjust as needed */
+                margin: 20px 0;
+            }       
+
+        
+            #content {
+                width: calc(60% - 10px); /* Adjust as needed */
+                margin-right: 20px; /* Add a small margin */
+                padding: 20px;
+                background-color: #e77e05;
+                border-radius: 8px;
+                /* align-items: center;  */
+                box-shadow: 0 0 10px rgba(163, 3, 3, 0.1);
+            }
+        
+            form {
+                width: calc(30% - 10px); /* Adjust as needed */
+                margin-left: 20px; /* Add a small margin */
+                background-color: #e77e05;
+                padding: 20px;
+                border-radius: 8px;
+                align-items: center; 
+                box-shadow: 0 0 10px rgba(163, 3, 3, 0.1);
+            }
+        
+            label,
+            input {
+                display: block;
+                width: 100%;
+                margin-bottom: 16px;
+            }
+        
+            button {
+                background-color: #cc7d06;
+                color: #fff;
+                padding: 10px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+        
+            button:hover {
+                background-color: #221901;
+            }
+        
+            .switch-form {
+                margin-top: 20px;
+                text-align: center;
+            }
+        
+            .switch-form a {
+                color: #5e4801;
+                text-decoration: none;
+            }
+        </style>
+    
+    {% endif %}
+    <!-- Include your external stylesheet if needed -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <!-- User profile icon and menu -->
+    <div class="user-profile">
+        <img src="{{ url_for('static', filename='user_icon.jpg') }}" alt="User Profile Icon">
+        <span class="username">{{ username }}</span>
+        <div class="menu">
+            <a href="#">Profile</a>
+            <a href="#">Settings</a>
+            <a href="#" onclick="logout()">Logout</a>
+        </div>
+    </div>
+
+    <header>
+        <h1>AI - ML Core</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <!-- <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li> -->
+            <!-- {% if request.endpoint == 'train_models' %}
+                <li><a href="{{ url_for('evaluate_model') }}">Evaluate Model</a></li>
+                <li><a href="{{ url_for('predict') }}">Predict</a></li>
+                <li><a href="{{ url_for('get_models') }}">Get Models</a></li>
+                <li><a href="{{ url_for('deploy_model') }}">Deploy Model</a></li> <!-- Added deploy model -->
+            {% else %}
+                <li><span>Evaluate Model</span></li>
+                <li><span>Predict</span></li>
+                <li><span>Get Models</span></li>
+                <li><span>Deploy Models</span></li>
+            {% endif %} -->
+        </ul>
+    </nav>
+
+    <div id="container">
+        <div id="content">
+            {% block content %}
+                <!-- Add descriptions for each functionality here -->
+                <div id="train-description">
+                    <h2>Train Models</h2>
+                    <p>This section allows you to train machine learning models using your data.</p>
+                </div>
+
+                <div id="evaluate-description">
+                    <h2>Evaluate Model</h2>
+                    <p>Here, you can evaluate the performance of a trained model with additional data.</p>
+                </div>
+
+                <div id="predict-description">
+                    <h2>Predict</h2>
+                    <p>Predict outcomes using a trained model on new input data.</p>
+                </div>
+
+                <div id="get-models-description">
+                    <h2>Get Models</h2>
+                    <p>Retrieve information about available machine learning models.</p>
+                </div>
+
+                <div id="deploy-model-description">
+                    <h2>Deploy Model</h2>
+                    <p>
+                        Add your description for the "Deploy Model" functionality here. This could include details about
+                        deploying trained models, the purpose of deployment, and any relevant instructions or steps.
+                    </p>
+                </div>
+            {% endblock %}
+        </div>
+
+        {% if url_for('home') == url_for(request.endpoint) %}
+            <form id="signInForm">
+                <h2>Sign In</h2>
+                <label for="signin_username">Username:</label>
+                <input type="text" id="signin_username" name="username" required>
+
+                <label for="signin_password">Password:</label>
+                <input type="password" id="signin_password" name="password" required>
+
+                <button type="button" onclick="signIn()">Sign In</button>
+
+                <div class="switch-form">
+                    <a href="#" onclick="showRecoveryForm()">Forgot password?</a>
+                </div>
+
+                <div class="switch-form">
+                    Don't have an account? <a href="#" onclick="showSignUpForm()">Sign Up</a>
+                </div>
+            </form>
+
+            <!-- Password recovery form -->
+            <form id="recoveryForm" style="display: none;">
+                <h2>Password Recovery</h2>
+                <p>Enter your username and answer the security questions to recover your password.</p>
+
+                <label for="recovery_username">Username:</label>
+                <input type="text" id="recovery_username" name="username" required>
+
+                <label for="security_answer_1">Special Pet</label>
+                <input type="text" id="security_answer_1" name="security_answer_1" required>
+
+                <label for="security_answer_2">Favorite Actor</label>
+                <input type="text" id="security_answer_2" name="security_answer_2" required>
+
+                <button type="button" onclick="recoverPassword()">Recover Password</button>
+
+                <div class="switch-form">
+                    Remember your password? <a href="#" onclick="showSignInForm()">Sign In</a>
+                </div>
+            </form>
+                     
+
+            <form id="signUpForm" style="display: none;">
+                <h2>Sign Up</h2>
+                <label for="signup_username">Username:</label>
+                <input type="text" id="signup_username" name="username" required>
+            
+                <label for="signup_password">Password:</label>
+                <input type="password" id="signup_password" name="password" required>
+            
+                <!-- Additional parameters for recovery -->
+                <label for="special_pet">Special Pet:</label>
+                <input type="text" id="special_pet" name="special_pet" required>
+            
+                <label for="favorite_actor">Favorite Actor:</label>
+                <input type="text" id="favorite_actor" name="favorite_actor" required>
+            
+ 
+                <button type="submit" onclick="signUp()">Sign Up</button>
+            
+                <div class="switch-form">
+                    Already have an account? <a href="#" onclick="showSignInForm()">Sign In</a>
+                </div>
+                <div id="loadingIndicator" style="display: none;">Waiting for Response...</div>
+            </form>
+        {% endif %}
+    </div>
+
+    <script>
+
+
+
+        function signIn() {
+            // Show loading indicator
+            document.getElementById('loadingIndicator').style.display = 'block';
+
+            // Gather input values
+            var username = document.getElementById('signin_username').value;
+            var password = document.getElementById('signin_password').value;
+
+            // Prepare data for API request
+            var requestData = {
+                username: username,
+                password: password
+            };
+
+            // Make API request to sign in
+            fetch('/sign_in', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(requestData),
+            })
+            .then(response => {
+                // Check if the response is ok (status in the range 200-299)
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                // Handle the response (success or error)
+                alert(data.message);
+
+                // Check if sign-in was successful
+                if (data.success) {
+                    // Redirect to the train
+                    window.location.href = "/dashboard";
+                }
+            })
+            .catch(error => {
+                // Handle error
+                console.error('Error signing in:', error);
+                alert('Error signing in. Please try again.');
+
+                // Log the detailed error message received from the server
+                if (error instanceof Error) {
+                    console.error('Server error details:', error.message);
+                }
+            })
+            .finally(() => {
+                // Hide loading indicator when the response is received
+                document.getElementById('loadingIndicator').style.display = 'none';
+            });
+        }
+
+        function signUp() {
+            // Gather input values
+            var username = document.getElementById('signup_username').value;
+            var password = document.getElementById('signup_password').value;
+
+            // Validate input if needed
+
+            // Prepare data for API request
+            var requestData = {
+                username: username,
+                password: password
+            };
+
+            // Make API request to sign up
+            fetch('/sign_up', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(requestData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Handle the response (success or error)
+                alert(data.message);
+                // Redirect to the home page or another page as needed
+                window.location.href = "/";
+            })
+            .catch(error => {
+                // Handle error
+                console.error('Error signing up:', error);
+                alert('Error signing up. Please try again.');
+            });
+        }
+
+        function showSignUpForm() {
+            document.getElementById('signInForm').style.display = 'none';
+            document.getElementById('signUpForm').style.display = 'block';
+        }
+
+        function showSignInForm() {
+            document.getElementById('signInForm').style.display = 'block';
+            document.getElementById('signUpForm').style.display = 'none';
+        }
+
+        function showRecoveryForm() {
+            document.getElementById('signInForm').style.display = 'none';
+            document.getElementById('signUpForm').style.display = 'none';
+            document.getElementById('recoveryForm').style.display = 'block';
+        }
+
+        function recoverPassword() {
+            // Gather input values
+            var username = document.getElementById('recovery_username').value;
+            var answer1 = document.getElementById('security_answer_1').value;
+            var answer2 = document.getElementById('security_answer_2').value;
+
+            // Validate input if needed
+
+            // Implement logic to fetch user's security questions and answers
+            // This is a placeholder; replace it with your actual logic
+            var userSecurityData = getUserSecurityData(username);
+
+            // Check if answers match the stored security answers
+            if (
+                answer1.toLowerCase() === userSecurityData.answer1.toLowerCase() &&
+                answer2.toLowerCase() === userSecurityData.answer2.toLowerCase()
+            ) {
+                // Answers are correct, display the recovered password
+                alert('Your password is: ' + userSecurityData.password);
+                // You can also display the recovered password on the screen
+                // For example, update an HTML element with the recovered password
+                document.getElementById('recoveredPassword').innerText =
+                    'Your recovered password is: ' + userSecurityData.password;
+            } else {
+                // Incorrect answers
+                alert('Incorrect answers. Please try again.');
+            }
+        }
+
+        // This is a placeholder function; replace it with your actual logic
+        function getUserSecurityData(username) {
+            // Replace this with your actual logic to fetch user's security data from your backend or storage
+            // For example, you might have a server endpoint that fetches this data
+            // Ensure that this function returns an object with properties: answer1, answer2, password
+            // corresponding to the user's security questions and password
+            return {
+                answer1: 'answer1', // Replace with the actual answer
+                answer2: 'answer2', // Replace with the actual answer
+                password: 'user_password', // Replace with the actual password
+            };
+        }
+    </script>
+
+    <!-- <footer>
+        <p>&copy; Powered by PwC. All rights reserved.</p>
+    </footer> -->
+
+</body>
+</html>

@@ -1,0 +1,241 @@
+<!-- templates/pre_dict.html -->
+{% extends 'FE_App.html' %}
+
+{% block content %}
+    <h1>Predict</h1>
+
+    <!-- Display Model Name -->
+    <p style="text-align: center; color: white; font-weight: bold; animation: blinker 1s linear infinite;">Model Name: {{ request.args.get('model_name') }}</p>
+
+    <!-- Loading Indicator -->
+    <div id="loadingIndicator" style="display: none; text-align: center; color: white; font-weight: bold; margin-top: 20px;">Waiting for Prediction...</div>
+
+    <form id="predictForm" action="{{ url_for('result') }}" method="post" enctype="multipart/form-data">
+        <label for="file">Select Input Data:</label>
+        <input type="file" name="file" id="file" accept=".csv" required>
+        <br>
+        <!-- Display Model Name from URL within the form -->
+        <p style="text-align: center; color: white; font-weight: bold; animation: blinker 1s linear infinite;">
+            Model Name: <span id="modelNameDisplayForm">{{ request.args.get('model_name') }}</span>
+        </p>
+        <br>
+        <input type="hidden" id="model_name" name="model_name">
+        <input type="hidden" id="model_filename" name="model_filename">  <!-- Add a hidden input for model_filename -->
+        <p id="modelNameDisplay"></p>
+        <button type="submit">Predict</button>
+    </form>
+
+    <!-- Preview of Uploaded Data -->
+    <h2 style="text-align: center; color: white; font-weight: bold;">Preview of Uploaded Data</h2>
+    <table id="columnAnalysisTable" class="table">
+        <tbody id="columnAnalysisBody"></tbody>
+    </table>
+
+    <!-- CSS for Blinking Effect -->
+    <style>
+        @keyframes blinker {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.5;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+
+    <!-- Include your JavaScript file -->
+    <script src="{{ url_for('static', filename='flask_app_script.js') }}"></script>
+    <script>
+        document.getElementById('file').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+
+            if (file) {
+                const reader = new FileReader();
+
+                reader.onload = function(event) {
+                    const csvData = event.target.result;
+                    const rows = csvData.split('\n');
+
+                    const previewTable = document.createElement('table');
+                    const previewBody = document.createElement('tbody');
+
+                    // Extract column names and save to session
+                    const columns = rows[0].split(',');
+
+                    // Save to session
+                    const apiRequiredFields = columns.map(column => column.trim());
+                    sessionStorage.setItem('API_Required_Fields', JSON.stringify(apiRequiredFields));
+
+                    fetch('/store_session', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ apiRequiredFields }),
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log('Data stored in session:', data);
+                    })
+                    .catch(error => {
+                        console.error('Error storing data in session:', error);
+                    });
+
+
+                    for (let i = 0; i < Math.min(5, rows.length); i++) {
+                        const row = previewBody.insertRow();
+                        const columns = rows[i].split(',');
+                        
+
+                        for (let j = 0; j < columns.length; j++) {
+                            const cell = row.insertCell();
+                            cell.textContent = columns[j];
+                        }
+                    }
+
+                    previewTable.appendChild(previewBody);
+                    document.getElementById('columnAnalysisBody').innerHTML = '';
+                    document.getElementById('columnAnalysisBody').appendChild(previewTable);
+                };
+
+                reader.readAsText(file);
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Retrieve the model name from the URL query parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const modelName = urlParams.get('model_name');
+            const modelFilename = urlParams.get('model_filename');
+            // console.log(modelFilename)
+
+            // Set the model name as the value for the hidden input field
+            document.getElementById('model_name').value = modelName;
+            document.getElementById('model_filename').value = modelFilename;
+
+            
+
+            // Display the model name
+            document.getElementById('modelNameDisplay').textContent = `Model Name: ${modelName || 'Not Provided'}`;
+        });
+
+        document.getElementById('predictForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent the default form submission
+
+            // Show loading indicator
+            document.getElementById('loadingIndicator').style.display = 'block';
+
+            const modelName = document.getElementById('model_name').value;
+            const modelFilename = document.getElementById('model_filename').value;
+            const file = document.getElementById('file').files[0];
+
+            if (!modelName) {
+                console.error('Model name not provided.');
+                // Hide loading indicator if there's an issue
+                document.getElementById('loadingIndicator').style.display = 'none';
+                return;
+            }
+
+            if (!modelFilename) {
+                console.error('Model filename not provided.');
+                // Hide loading indicator if there's an issue
+                document.getElementById('loadingIndicator').style.display = 'none';
+                return;
+            }
+
+            if (!file) {
+                console.error('File not provided.');
+                // Hide loading indicator if there's an issue
+                document.getElementById('loadingIndicator').style.display = 'none';
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('model_name', modelFilename);
+
+            // formData.append('model_filename', modelFilename);
+            formData.append('file', file);
+// console.log(modelName)
+console.log(modelFilename)
+console.log(formData)
+
+            fetch('/predict', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data && data.prediction_result) {
+                    const modelNameQueryParam = `model_name=${encodeURIComponent(modelName)}`;
+                    console.log(modelNameQueryParam)
+                    const predictionResultQueryParam = `prediction_r=${JSON.stringify(data.prediction_result)}`;
+                    console.log(`Prediction Result: ${predictionResultQueryParam}`)
+                    const modelFilenameQueryParam = `model_filename=${encodeURIComponent(modelFilename)}`;
+                    // console.log(modelFilenameQueryParam)
+
+                    // Declare username outside the if block
+                    let username;
+
+                    // const handleRedirection = () => {
+                    //     console.log(`Redirecting to /result?${username}&${predictionResultQueryParam}${modelNameQueryParam}`);
+                    //     // Redirect to the result page with the prediction result
+                    //     window.location.href = `/result?${username}&${predictionResultQueryParam}${modelNameQueryParam}${modelFilenameQueryParam}`;
+                    // };
+                    const handleRedirection = () => {
+                        // Encode the query parameters to ensure proper URL format
+                        const encodedParams = [predictionResultQueryParam, modelNameQueryParam, modelFilenameQueryParam]
+                            .map(param => encodeURIComponent(param))
+                            .join('&');
+
+                        // Construct the final URL with the encoded query parameters
+                        // const redirectUrl = `/result?${username}&${encodedParams}`;
+                        
+
+                        // Construct the final URL with the encoded query parameters
+                        const redirectUrl = `/result?${username}&${modelNameQueryParam}&${predictionResultQueryParam}&${modelFilenameQueryParam}`;
+
+
+                        console.log(`Redirecting to ${redirectUrl}`);
+                        // Redirect to the result page with the encoded query parameters
+                        window.location.href = redirectUrl;
+                    };
+
+                    // Call the function to initiate the redirection
+                    handleRedirection();
+
+                    const usernameElement = document.querySelector('.user-profile .username');
+                    if (usernameElement) {
+                        // Extract the username text
+                        username = usernameElement.textContent.trim();
+
+                        // Use the extracted username as needed
+                        console.log('Username:', username);
+
+                        // Call the redirection function
+                        handleRedirection();
+                    } else {
+                        console.error('Username element not found.');
+
+                        // If the username element is not found, you may still want to call the redirection function
+                        // with an undefined or default username
+                        handleRedirection();
+                    }
+                } else {
+                    console.error('Received empty or invalid prediction result from the server.');
+                }
+
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            })
+            .finally(() => {
+                // Hide loading indicator when the response is received
+                document.getElementById('loadingIndicator').style.display = 'none';
+            });
+        });
+
+    </script>
+{% endblock %}

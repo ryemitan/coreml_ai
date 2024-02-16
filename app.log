@@ -1,0 +1,926 @@
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8100
+ * Running on http://172.20.10.5:8100
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:root:Request: GET /
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:27:16] "GET / HTTP/1.1" 200 -
+INFO:root:Request: GET /static/style.css
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:27:16] "GET /static/style.css HTTP/1.1" 200 -
+INFO:root:Request: GET /static/user_icon.jpg
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:27:17] "GET /static/user_icon.jpg HTTP/1.1" 200 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:27:17] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8100
+ * Running on http://172.20.10.5:8100
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:root:Request: GET /
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:30:03] "GET / HTTP/1.1" 200 -
+INFO:root:Request: GET /static/style.css
+INFO:root:Request: GET /static/user_icon.jpg
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:30:03] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:30:03] "[36mGET /static/user_icon.jpg HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:30:04] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:30:15] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: GET /
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:30:47] "GET /?username=MaryamF&password=Pwcras&special_pet=Rabbit&favorite_actor=tom+Hank HTTP/1.1" 200 -
+INFO:root:Request: POST /sign_up
+INFO:root:Request: GET /static/style.css
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:30:47] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /static/user_icon.jpg
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:30:47] "[36mGET /static/user_icon.jpg HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:30:47] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:30:47] "POST /sign_up HTTP/1.1" 200 -
+INFO:root:Request: POST /sign_in
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:30:59] "[31m[1mPOST /sign_in HTTP/1.1[0m" 401 -
+INFO:root:Request: POST /sign_in
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:31:14] "POST /sign_in HTTP/1.1" 200 -
+INFO:root:Request: GET /dashboard
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:31:18] "GET /dashboard HTTP/1.1" 200 -
+INFO:root:Request: GET /static/style.css
+INFO:root:Request: GET /static/user_icon.jpg
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:31:18] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:31:18] "[36mGET /static/user_icon.jpg HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:31:18] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: GET /create_new_model
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:31:25] "GET /create_new_model HTTP/1.1" 200 -
+INFO:root:Request: GET /static/style.css
+INFO:root:Request: GET /static/user_icon.jpg
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:31:25] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:31:25] "[36mGET /static/user_icon.jpg HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:31:25] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: POST /create_project
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:31:47] "[32mPOST /create_project HTTP/1.1[0m" 302 -
+INFO:root:Request: GET /train
+INFO:root:Request to /train endpoint received
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:31:47] "GET /train HTTP/1.1" 200 -
+INFO:root:Request: GET /static/style.css
+INFO:root:Request: GET /static/user_icon.jpg
+INFO:root:Request: GET /static/flask_app_script.js
+INFO:root:Request: GET /static/train_script.js
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:31:47] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:31:47] "[36mGET /static/user_icon.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:31:47] "GET /static/train_script.js HTTP/1.1" 200 -
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:31:47] "GET /static/flask_app_script.js HTTP/1.1" 200 -
+INFO:root:Request: GET /get_target_columns
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:31:47] "[31m[1mGET /get_target_columns HTTP/1.1[0m" 405 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:31:47] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:32:09] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: GET /create_new_model
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:32:22] "GET /create_new_model HTTP/1.1" 200 -
+INFO:root:Request: GET /static/style.css
+INFO:root:Request: GET /static/user_icon.jpg
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:32:22] "[36mGET /static/user_icon.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:32:22] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:32:22] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: POST /train
+INFO:root:Request to /train endpoint received
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:32:32] "POST /train HTTP/1.1" 200 -
+INFO:root:Request: GET /static/style.css
+INFO:root:Request: GET /static/train_script.js
+INFO:root:Request: GET /static/flask_app_script.js
+INFO:root:Request: GET /static/user_icon.jpg
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:32:32] "[36mGET /static/user_icon.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:32:32] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:32:32] "[36mGET /static/train_script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:32:32] "[36mGET /static/flask_app_script.js HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /get_target_columns
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:32:32] "[31m[1mGET /get_target_columns HTTP/1.1[0m" 405 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:32:32] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: GET /get_trainer_class/3V1105_2:311LT005.PNT
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:33:28] "[33mGET /get_trainer_class/3V1105_2:311LT005.PNT HTTP/1.1[0m" 404 -
+INFO:root:Request: GET /get_trainer_class/2V1201_2:212LC013.OUT
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:33:31] "[33mGET /get_trainer_class/2V1201_2:212LC013.OUT HTTP/1.1[0m" 404 -
+INFO:root:Request: GET /train
+INFO:root:Request to /train endpoint received
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:35:18] "GET /train HTTP/1.1" 200 -
+INFO:root:Request: GET /static/style.css
+INFO:root:Request: GET /static/train_script.js
+INFO:root:Request: GET /static/flask_app_script.js
+INFO:root:Request: GET /static/user_icon.jpg
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:35:25] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:35:25] "[36mGET /static/train_script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:35:25] "[36mGET /static/flask_app_script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:35:25] "[36mGET /static/user_icon.jpg HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /get_target_columns
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:35:25] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:35:25] "[31m[1mGET /get_target_columns HTTP/1.1[0m" 405 -
+INFO:root:Request: GET /
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:37:45] "GET / HTTP/1.1" 200 -
+INFO:root:Request: GET /static/style.css
+INFO:root:Request: GET /static/user_icon.jpg
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:37:45] "[36mGET /static/user_icon.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:37:45] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:37:45] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: POST /sign_in
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:37:49] "POST /sign_in HTTP/1.1" 200 -
+INFO:root:Request: GET /dashboard
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:37:51] "GET /dashboard HTTP/1.1" 200 -
+INFO:root:Request: GET /static/style.css
+INFO:root:Request: GET /static/user_icon.jpg
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:37:51] "[36mGET /static/user_icon.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:37:51] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:37:51] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: GET /create_new_model
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:37:53] "GET /create_new_model HTTP/1.1" 200 -
+INFO:root:Request: GET /static/style.css
+INFO:root:Request: GET /static/user_icon.jpg
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:37:53] "[36mGET /static/user_icon.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:37:53] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:37:53] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: POST /train
+INFO:root:Request to /train endpoint received
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:37:58] "POST /train HTTP/1.1" 200 -
+INFO:root:Request: GET /static/style.css
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:37:58] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /static/flask_app_script.js
+INFO:root:Request: GET /static/user_icon.jpg
+INFO:root:Request: GET /static/train_script.js
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:37:58] "[36mGET /static/train_script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:37:58] "[36mGET /static/flask_app_script.js HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /get_target_columns
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:37:58] "[31m[1mGET /get_target_columns HTTP/1.1[0m" 405 -
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:37:58] "[36mGET /static/user_icon.jpg HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:37:58] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: GET /static/style.css
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:38:27] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8100
+ * Running on http://172.20.10.5:8100
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:root:Request: GET /train
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:42:49] "[31m[1mGET /train HTTP/1.1[0m" 401 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:42:49] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:42:51] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: GET /
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:42:53] "GET / HTTP/1.1" 200 -
+INFO:root:Request: GET /static/style.css
+INFO:root:Request: GET /static/user_icon.jpg
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:42:53] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:42:53] "[36mGET /static/user_icon.jpg HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:42:54] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: POST /sign_in
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:42:56] "POST /sign_in HTTP/1.1" 200 -
+INFO:root:Request: GET /dashboard
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:42:58] "GET /dashboard HTTP/1.1" 200 -
+INFO:root:Request: GET /static/style.css
+INFO:root:Request: GET /static/user_icon.jpg
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:42:58] "[36mGET /static/user_icon.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:42:58] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:42:58] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: GET /create_new_model
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:43:02] "GET /create_new_model HTTP/1.1" 200 -
+INFO:root:Request: GET /static/style.css
+INFO:root:Request: GET /static/user_icon.jpg
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:43:02] "[36mGET /static/user_icon.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:43:02] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:43:03] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: POST /train
+INFO:root:Request to /train endpoint received
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:43:07] "POST /train HTTP/1.1" 200 -
+INFO:root:Request: GET /static/style.css
+INFO:root:Request: GET /static/user_icon.jpg
+INFO:root:Request: GET /static/flask_app_script.js
+INFO:root:Request: GET /static/train_script.js
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:43:07] "[36mGET /static/user_icon.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:43:07] "[36mGET /static/flask_app_script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:43:07] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:43:07] "[36mGET /static/train_script.js HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /get_target_columns
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:43:07] "[31m[1mGET /get_target_columns HTTP/1.1[0m" 405 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:43:07] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: GET /train
+INFO:root:Request to /train endpoint received
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:44:24] "GET /train HTTP/1.1" 200 -
+INFO:root:Request: GET /static/style.css
+INFO:root:Request: GET /static/user_icon.jpg
+INFO:root:Request: GET /static/flask_app_script.js
+INFO:root:Request: GET /static/train_script.js
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:44:24] "[36mGET /static/user_icon.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:44:24] "[36mGET /static/flask_app_script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:44:24] "[36mGET /static/train_script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:44:24] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /get_target_columns
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:44:24] "[31m[1mGET /get_target_columns HTTP/1.1[0m" 405 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:44:24] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: GET /get_trainer_class/2E1540_4:215FT001.PNT
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:44:38] "[33mGET /get_trainer_class/2E1540_4:215FT001.PNT HTTP/1.1[0m" 404 -
+INFO:root:Request: GET /get_trainer_class/2P1570_4:215FC029.OUT
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:44:43] "[33mGET /get_trainer_class/2P1570_4:215FC029.OUT HTTP/1.1[0m" 404 -
+INFO:root:Request: POST /sign_in
+INFO:werkzeug:127.0.0.1 - - [15/Feb/2024 18:45:07] "POST /sign_in HTTP/1.1" 200 -
+INFO:root:Request: GET /dashboard
+INFO:werkzeug:127.0.0.1 - - [15/Feb/2024 18:45:08] "GET /dashboard HTTP/1.1" 200 -
+INFO:root:Request: GET /static/style.css
+INFO:werkzeug:127.0.0.1 - - [15/Feb/2024 18:45:08] "GET /static/style.css HTTP/1.1" 200 -
+INFO:root:Request: GET /static/user_icon.jpg
+INFO:werkzeug:127.0.0.1 - - [15/Feb/2024 18:45:09] "GET /static/user_icon.jpg HTTP/1.1" 200 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:127.0.0.1 - - [15/Feb/2024 18:45:09] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:127.0.0.1 - - [15/Feb/2024 18:45:11] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: GET /
+INFO:werkzeug:127.0.0.1 - - [15/Feb/2024 18:45:14] "GET / HTTP/1.1" 200 -
+INFO:root:Request: GET /static/style.css
+INFO:werkzeug:127.0.0.1 - - [15/Feb/2024 18:45:14] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /static/user_icon.jpg
+INFO:werkzeug:127.0.0.1 - - [15/Feb/2024 18:45:14] "[36mGET /static/user_icon.jpg HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:127.0.0.1 - - [15/Feb/2024 18:45:15] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: POST /sign_in
+INFO:werkzeug:127.0.0.1 - - [15/Feb/2024 18:45:28] "POST /sign_in HTTP/1.1" 200 -
+INFO:root:Request: GET /dashboard
+INFO:werkzeug:127.0.0.1 - - [15/Feb/2024 18:45:33] "GET /dashboard HTTP/1.1" 200 -
+INFO:root:Request: GET /static/style.css
+INFO:werkzeug:127.0.0.1 - - [15/Feb/2024 18:45:33] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /static/user_icon.jpg
+INFO:werkzeug:127.0.0.1 - - [15/Feb/2024 18:45:33] "[36mGET /static/user_icon.jpg HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:127.0.0.1 - - [15/Feb/2024 18:45:34] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: GET /create_new_model
+INFO:werkzeug:127.0.0.1 - - [15/Feb/2024 18:45:36] "GET /create_new_model HTTP/1.1" 200 -
+INFO:root:Request: GET /static/style.css
+INFO:root:Request: GET /static/user_icon.jpg
+INFO:werkzeug:127.0.0.1 - - [15/Feb/2024 18:45:37] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [15/Feb/2024 18:45:37] "[36mGET /static/user_icon.jpg HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:127.0.0.1 - - [15/Feb/2024 18:45:37] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: POST /train
+INFO:root:Request to /train endpoint received
+INFO:werkzeug:127.0.0.1 - - [15/Feb/2024 18:45:42] "POST /train HTTP/1.1" 200 -
+INFO:root:Request: GET /static/style.css
+INFO:werkzeug:127.0.0.1 - - [15/Feb/2024 18:45:43] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /static/user_icon.jpg
+INFO:root:Request: GET /static/flask_app_script.js
+INFO:root:Request: GET /static/train_script.js
+INFO:werkzeug:127.0.0.1 - - [15/Feb/2024 18:45:43] "GET /static/flask_app_script.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [15/Feb/2024 18:45:43] "[36mGET /static/user_icon.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [15/Feb/2024 18:45:43] "GET /static/train_script.js HTTP/1.1" 200 -
+INFO:root:Request: GET /get_target_columns
+INFO:werkzeug:127.0.0.1 - - [15/Feb/2024 18:45:43] "[31m[1mGET /get_target_columns HTTP/1.1[0m" 405 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:127.0.0.1 - - [15/Feb/2024 18:45:43] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: GET /get_trainer_class/status
+INFO:werkzeug:127.0.0.1 - - [15/Feb/2024 18:46:09] "[33mGET /get_trainer_class/status HTTP/1.1[0m" 404 -
+INFO:root:Request: POST /train_models
+INFO:werkzeug:127.0.0.1 - - [15/Feb/2024 18:46:36] "POST /train_models HTTP/1.1" 200 -
+INFO:root:Request: GET /gmodels
+INFO:werkzeug:127.0.0.1 - - [15/Feb/2024 18:46:37] "GET /gmodels HTTP/1.1" 200 -
+INFO:root:Request: GET /static/style.css
+INFO:werkzeug:127.0.0.1 - - [15/Feb/2024 18:46:37] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /static/user_icon.jpg
+INFO:werkzeug:127.0.0.1 - - [15/Feb/2024 18:46:37] "[36mGET /static/user_icon.jpg HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /static/flask_app_script.js
+INFO:werkzeug:127.0.0.1 - - [15/Feb/2024 18:46:37] "[36mGET /static/flask_app_script.js HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /get_models
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:127.0.0.1 - - [15/Feb/2024 18:46:37] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:werkzeug:127.0.0.1 - - [15/Feb/2024 18:46:38] "GET /get_models HTTP/1.1" 200 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://172.20.10.5:8100
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:root:Request: GET /
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:55:31] "GET / HTTP/1.1" 200 -
+INFO:root:Request: GET /static/style.css
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:55:31] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /static/user_icon.jpg
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:55:31] "[36mGET /static/user_icon.jpg HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:55:31] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: POST /sign_in
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:55:36] "POST /sign_in HTTP/1.1" 200 -
+INFO:root:Request: GET /dashboard
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:55:43] "GET /dashboard HTTP/1.1" 200 -
+INFO:root:Request: GET /static/style.css
+INFO:root:Request: GET /static/user_icon.jpg
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:55:43] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:55:43] "[36mGET /static/user_icon.jpg HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:55:43] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: GET /create_new_model
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:55:54] "GET /create_new_model HTTP/1.1" 200 -
+INFO:root:Request: GET /static/style.css
+INFO:root:Request: GET /static/user_icon.jpg
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:55:54] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:55:54] "[36mGET /static/user_icon.jpg HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:55:54] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: POST /train
+INFO:root:Request to /train endpoint received
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:56:14] "POST /train HTTP/1.1" 200 -
+INFO:root:Request: GET /static/style.css
+INFO:root:Request: GET /static/user_icon.jpg
+INFO:root:Request: GET /static/flask_app_script.js
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:56:14] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:56:14] "[36mGET /static/user_icon.jpg HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /static/train_script.js
+INFO:root:Request: GET /get_target_columns
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:56:14] "[31m[1mGET /get_target_columns HTTP/1.1[0m" 405 -
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:56:14] "[36mGET /static/flask_app_script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:56:14] "[36mGET /static/train_script.js HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:56:14] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: GET /get_trainer_class/2V1201_2:212LC013.OUT
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 18:56:24] "[33mGET /get_trainer_class/2V1201_2:212LC013.OUT HTTP/1.1[0m" 404 -
+INFO:root:Request: GET /train
+INFO:root:Request to /train endpoint received
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:02:47] "GET /train HTTP/1.1" 200 -
+INFO:root:Request: GET /static/style.css
+INFO:root:Request: GET /static/flask_app_script.js
+INFO:root:Request: GET /static/user_icon.jpg
+INFO:root:Request: GET /static/train_script.js
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:02:47] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:02:47] "[36mGET /static/user_icon.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:02:47] "[36mGET /static/train_script.js HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /get_target_columns
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:02:47] "[31m[1mGET /get_target_columns HTTP/1.1[0m" 405 -
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:02:47] "GET /static/flask_app_script.js HTTP/1.1" 200 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:02:47] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: GET /get_trainer_class/4V1410_2:414FC015.OUT
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:03:00] "[33mGET /get_trainer_class/4V1410_2:414FC015.OUT HTTP/1.1[0m" 404 -
+INFO:root:Request: POST /train_models
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:03:06] "[35m[1mPOST /train_models HTTP/1.1[0m" 500 -
+INFO:root:Request: POST /train_models
+INFO:root:Request: GET /
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:15:49] "GET / HTTP/1.1" 200 -
+INFO:root:Request: GET /static/style.css
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:15:49] "GET /static/style.css HTTP/1.1" 200 -
+INFO:root:Request: GET /static/user_icon.jpg
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:15:49] "GET /static/user_icon.jpg HTTP/1.1" 200 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:15:49] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: POST /sign_in
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:16:00] "[31m[1mPOST /sign_in HTTP/1.1[0m" 401 -
+INFO:root:Request: POST /sign_in
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:16:10] "POST /sign_in HTTP/1.1" 200 -
+INFO:root:Request: GET /dashboard
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:16:12] "GET /dashboard HTTP/1.1" 200 -
+INFO:root:Request: GET /static/style.css
+INFO:root:Request: GET /static/user_icon.jpg
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:16:12] "[36mGET /static/user_icon.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:16:12] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:16:12] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: GET /create_new_model
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:16:17] "GET /create_new_model HTTP/1.1" 200 -
+INFO:root:Request: GET /static/style.css
+INFO:root:Request: GET /static/user_icon.jpg
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:16:17] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:16:17] "[36mGET /static/user_icon.jpg HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:16:18] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: POST /train
+INFO:root:Request to /train endpoint received
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:16:54] "POST /train HTTP/1.1" 200 -
+INFO:root:Request: GET /static/style.css
+INFO:root:Request: GET /static/flask_app_script.js
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:16:54] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /static/user_icon.jpg
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:16:54] "[36mGET /static/user_icon.jpg HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /static/train_script.js
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:16:54] "GET /static/flask_app_script.js HTTP/1.1" 200 -
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:16:54] "GET /static/train_script.js HTTP/1.1" 200 -
+INFO:root:Request: GET /get_target_columns
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:16:54] "[31m[1mGET /get_target_columns HTTP/1.1[0m" 405 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:16:54] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:19:28] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: GET /create_new_model
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:19:29] "GET /create_new_model HTTP/1.1" 200 -
+INFO:root:Request: GET /static/style.css
+INFO:root:Request: GET /static/user_icon.jpg
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:19:29] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:19:29] "[36mGET /static/user_icon.jpg HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:19:29] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: GET /static/style.css
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:19:41] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO:root:Request: POST /train
+INFO:root:Request to /train endpoint received
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:19:48] "POST /train HTTP/1.1" 200 -
+INFO:root:Request: GET /static/style.css
+INFO:root:Request: GET /static/user_icon.jpg
+INFO:root:Request: GET /static/flask_app_script.js
+INFO:root:Request: GET /static/train_script.js
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:19:48] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:19:48] "[36mGET /static/train_script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:19:48] "[36mGET /static/flask_app_script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:19:48] "[36mGET /static/user_icon.jpg HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /get_target_columns
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:19:48] "[31m[1mGET /get_target_columns HTTP/1.1[0m" 405 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:19:48] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:19:59] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: POST /train
+INFO:root:Request to /train endpoint received
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:21:37] "POST /train HTTP/1.1" 200 -
+INFO:root:Request: GET /static/style.css
+INFO:root:Request: GET /static/user_icon.jpg
+INFO:root:Request: GET /static/flask_app_script.js
+INFO:root:Request: GET /static/train_script.js
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:21:37] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:21:37] "[36mGET /static/flask_app_script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:21:37] "[36mGET /static/train_script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:21:37] "[36mGET /static/user_icon.jpg HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /get_target_columns
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:21:37] "[31m[1mGET /get_target_columns HTTP/1.1[0m" 405 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:21:37] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:21:40] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: GET /create_new_model
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:21:44] "GET /create_new_model HTTP/1.1" 200 -
+INFO:root:Request: GET /static/style.css
+INFO:root:Request: GET /static/user_icon.jpg
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:21:44] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:21:44] "[36mGET /static/user_icon.jpg HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:21:44] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: POST /train
+INFO:root:Request to /train endpoint received
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:21:53] "POST /train HTTP/1.1" 200 -
+INFO:root:Request: GET /static/style.css
+INFO:root:Request: GET /static/user_icon.jpg
+INFO:root:Request: GET /static/flask_app_script.js
+INFO:root:Request: GET /static/train_script.js
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:21:53] "[36mGET /static/user_icon.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:21:53] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:21:53] "[36mGET /static/flask_app_script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:21:53] "[36mGET /static/train_script.js HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /get_target_columns
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:21:53] "[31m[1mGET /get_target_columns HTTP/1.1[0m" 405 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:21:53] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:22:02] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: GET /static/style.css
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:22:02] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:22:44] "GET / HTTP/1.1" 200 -
+INFO:root:Request: GET /static/style.css
+INFO:root:Request: GET /static/user_icon.jpg
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:22:44] "[36mGET /static/user_icon.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:22:44] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:22:44] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: POST /sign_in
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:22:49] "POST /sign_in HTTP/1.1" 200 -
+INFO:root:Request: GET /dashboard
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:22:51] "GET /dashboard HTTP/1.1" 200 -
+INFO:root:Request: GET /static/style.css
+INFO:root:Request: GET /static/user_icon.jpg
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:22:51] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:22:51] "[36mGET /static/user_icon.jpg HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:22:51] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: GET /create_new_model
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:22:56] "GET /create_new_model HTTP/1.1" 200 -
+INFO:root:Request: GET /static/style.css
+INFO:root:Request: GET /static/user_icon.jpg
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:22:56] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:22:56] "[36mGET /static/user_icon.jpg HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:22:56] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: POST /train
+INFO:root:Request to /train endpoint received
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:23:04] "POST /train HTTP/1.1" 200 -
+INFO:root:Request: GET /static/style.css
+INFO:root:Request: GET /static/user_icon.jpg
+INFO:root:Request: GET /static/flask_app_script.js
+INFO:root:Request: GET /static/train_script.js
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:23:04] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:23:04] "[36mGET /static/flask_app_script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:23:04] "[36mGET /static/train_script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:23:04] "[36mGET /static/user_icon.jpg HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /get_target_columns
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:23:04] "[31m[1mGET /get_target_columns HTTP/1.1[0m" 405 -
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:23:04] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:23:10] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: GET /static/style.css
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:23:10] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /create_new_model
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:27:05] "GET /create_new_model HTTP/1.1" 200 -
+INFO:root:Request: GET /static/style.css
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:27:05] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /static/user_icon.jpg
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:27:05] "[36mGET /static/user_icon.jpg HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:27:05] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: POST /train
+INFO:root:Request to /train endpoint received
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:27:20] "POST /train HTTP/1.1" 200 -
+INFO:root:Request: GET /static/style.css
+INFO:root:Request: GET /static/user_icon.jpg
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:27:20] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /static/flask_app_script.js
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:27:20] "[36mGET /static/user_icon.jpg HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /static/train_script.js
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:27:20] "[36mGET /static/flask_app_script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:27:20] "[36mGET /static/train_script.js HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /get_target_columns
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:27:21] "[31m[1mGET /get_target_columns HTTP/1.1[0m" 405 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:27:21] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:27:23] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: GET /static/style.css
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:27:23] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /create_new_model
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:28:41] "GET /create_new_model HTTP/1.1" 200 -
+INFO:root:Request: GET /static/style.css
+INFO:root:Request: GET /static/user_icon.jpg
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:28:41] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:28:41] "[36mGET /static/user_icon.jpg HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:28:41] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: POST /train
+INFO:root:Request to /train endpoint received
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:28:49] "POST /train HTTP/1.1" 200 -
+INFO:root:Request: GET /static/style.css
+INFO:root:Request: GET /static/user_icon.jpg
+INFO:root:Request: GET /static/flask_app_script.js
+INFO:root:Request: GET /static/train_script.js
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:28:49] "[36mGET /static/user_icon.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:28:49] "[36mGET /static/train_script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:28:49] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:28:49] "[36mGET /static/flask_app_script.js HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /get_target_columns
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:28:49] "[31m[1mGET /get_target_columns HTTP/1.1[0m" 405 -
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:28:49] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:28:52] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: GET /static/style.css
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:28:52] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /create_new_model
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:31:37] "GET /create_new_model HTTP/1.1" 200 -
+INFO:root:Request: GET /static/style.css
+INFO:root:Request: GET /static/user_icon.jpg
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:31:37] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:31:37] "[36mGET /static/user_icon.jpg HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:31:37] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: GET /create_new_model
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:32:48] "GET /create_new_model HTTP/1.1" 200 -
+INFO:root:Request: GET /static/style.css
+INFO:root:Request: GET /static/user_icon.jpg
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:32:48] "[36mGET /static/user_icon.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:32:48] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:32:48] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: POST /train
+INFO:root:Request to /train endpoint received
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:32:55] "POST /train HTTP/1.1" 200 -
+INFO:root:Request: GET /static/style.css
+INFO:root:Request: GET /static/user_icon.jpg
+INFO:root:Request: GET /static/flask_app_script.js
+INFO:root:Request: GET /static/train_script.js
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:32:55] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:32:55] "[36mGET /static/user_icon.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:32:55] "[36mGET /static/flask_app_script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:32:55] "[36mGET /static/train_script.js HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /get_target_columns
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:32:55] "[31m[1mGET /get_target_columns HTTP/1.1[0m" 405 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:32:55] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:33:08] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: GET /static/style.css
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:33:08] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /create_new_model
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:34:23] "GET /create_new_model HTTP/1.1" 200 -
+INFO:root:Request: GET /static/style.css
+INFO:root:Request: GET /static/user_icon.jpg
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:34:24] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:34:24] "[36mGET /static/user_icon.jpg HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:34:25] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: POST /train
+INFO:root:Request to /train endpoint received
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:34:40] "POST /train HTTP/1.1" 200 -
+INFO:root:Request: GET /static/style.css
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:34:40] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /static/user_icon.jpg
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:34:41] "[36mGET /static/user_icon.jpg HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /static/flask_app_script.js
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:34:41] "[36mGET /static/flask_app_script.js HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /static/train_script.js
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:34:41] "[36mGET /static/train_script.js HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /get_target_columns
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:34:41] "[31m[1mGET /get_target_columns HTTP/1.1[0m" 405 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:34:41] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:34:45] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: GET /static/style.css
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:34:45] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:36:23] "POST /train_models HTTP/1.1" 200 -
+INFO:root:Request: GET /gmodels
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:36:23] "GET /gmodels HTTP/1.1" 200 -
+INFO:root:Request: GET /static/style.css
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:36:23] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /static/user_icon.jpg
+INFO:root:Request: GET /static/flask_app_script.js
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:36:23] "GET /static/flask_app_script.js HTTP/1.1" 200 -
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:36:23] "[36mGET /static/user_icon.jpg HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /get_models
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:36:23] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:36:23] "GET /get_models HTTP/1.1" 200 -
+INFO:root:Request: GET /cre_dict
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:38:21] "GET /cre_dict?model_name=et&model_filename=et_20240215190805 HTTP/1.1" 200 -
+INFO:root:Request: GET /static/style.css
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:38:21] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /static/user_icon.jpg
+INFO:root:Request: GET /static/flask_app_script.js
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:38:21] "[36mGET /static/user_icon.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:38:21] "[36mGET /static/flask_app_script.js HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:38:21] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: POST /store_session
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:39:22] "POST /store_session HTTP/1.1" 200 -
+INFO:root:Request: POST /predict
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:39:26] "POST /predict HTTP/1.1" 200 -
+ERROR:werkzeug:172.20.10.4 - - [15/Feb/2024 19:39:27] code 414, message Request-URI Too Long
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:39:27] "[35m[1m[0m" HTTPStatus.REQUEST_URI_TOO_LONG -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:39:27] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:39:56] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: POST /predict
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:40:02] "POST /predict HTTP/1.1" 200 -
+ERROR:werkzeug:172.20.10.4 - - [15/Feb/2024 19:40:03] code 414, message Request-URI Too Long
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:40:03] "[35m[1m[0m" HTTPStatus.REQUEST_URI_TOO_LONG -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:40:03] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:40:50] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:40:53] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: POST /train
+INFO:root:Request to /train endpoint received
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:41:06] "POST /train HTTP/1.1" 200 -
+INFO:root:Request: GET /static/style.css
+INFO:root:Request: GET /static/user_icon.jpg
+INFO:root:Request: GET /static/flask_app_script.js
+INFO:root:Request: GET /static/train_script.js
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:41:06] "[36mGET /static/flask_app_script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:41:06] "[36mGET /static/user_icon.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:41:06] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:41:06] "[36mGET /static/train_script.js HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /get_target_columns
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:41:06] "[31m[1mGET /get_target_columns HTTP/1.1[0m" 405 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:41:06] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: POST /train_models
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:41:29] "[35m[1mPOST /train_models HTTP/1.1[0m" 500 -
+INFO:root:Request: POST /train_models
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:41:33] "[35m[1mPOST /train_models HTTP/1.1[0m" 500 -
+INFO:root:Request: POST /train_models
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:41:40] "[35m[1mPOST /train_models HTTP/1.1[0m" 500 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:42:42] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: POST /train
+INFO:root:Request to /train endpoint received
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:42:45] "POST /train HTTP/1.1" 200 -
+INFO:root:Request: GET /static/style.css
+INFO:root:Request: GET /static/user_icon.jpg
+INFO:root:Request: GET /static/flask_app_script.js
+INFO:root:Request: GET /static/train_script.js
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:42:45] "[36mGET /static/user_icon.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:42:45] "[36mGET /static/train_script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:42:45] "[36mGET /static/flask_app_script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:42:45] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /get_target_columns
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:42:45] "[31m[1mGET /get_target_columns HTTP/1.1[0m" 405 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:42:45] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:42:47] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: GET /create_new_model
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:42:48] "GET /create_new_model HTTP/1.1" 200 -
+INFO:root:Request: GET /static/style.css
+INFO:root:Request: GET /static/user_icon.jpg
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:42:48] "[36mGET /static/user_icon.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:42:48] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:42:48] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: POST /train
+INFO:root:Request to /train endpoint received
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:42:55] "POST /train HTTP/1.1" 200 -
+INFO:root:Request: GET /static/style.css
+INFO:root:Request: GET /static/user_icon.jpg
+INFO:root:Request: GET /static/flask_app_script.js
+INFO:root:Request: GET /static/train_script.js
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:42:55] "[36mGET /static/user_icon.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:42:55] "[36mGET /static/flask_app_script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:42:55] "[36mGET /static/train_script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:42:55] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /get_target_columns
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:42:55] "[31m[1mGET /get_target_columns HTTP/1.1[0m" 405 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 19:42:55] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: POST /train_models
+INFO:root:Request: POST /train_models
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:43:41] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: GET /get_trainer_class/2P1570_4:215FC029.OUT
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:45:01] "[33mGET /get_trainer_class/2P1570_4:215FC029.OUT HTTP/1.1[0m" 404 -
+INFO:root:Request: POST /train_models
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:45:28] "POST /train_models HTTP/1.1" 200 -
+INFO:root:Request: GET /gmodels
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:45:28] "GET /gmodels HTTP/1.1" 200 -
+INFO:root:Request: GET /static/style.css
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:45:28] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /static/flask_app_script.js
+INFO:root:Request: GET /static/user_icon.jpg
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:45:28] "[36mGET /static/flask_app_script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:45:28] "[36mGET /static/user_icon.jpg HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /get_models
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:45:28] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:45:28] "GET /get_models HTTP/1.1" 200 -
+INFO:root:Request: GET /cre_dict
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:47:02] "GET /cre_dict?model_name=par&model_filename=par_20240215194504 HTTP/1.1" 200 -
+INFO:root:Request: GET /static/style.css
+INFO:root:Request: GET /static/user_icon.jpg
+INFO:root:Request: GET /static/flask_app_script.js
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:47:02] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:47:02] "[36mGET /static/flask_app_script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:47:02] "[36mGET /static/user_icon.jpg HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:47:02] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: POST /store_session
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:49:25] "POST /store_session HTTP/1.1" 200 -
+INFO:root:Request: POST /predict
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:49:28] "POST /predict HTTP/1.1" 200 -
+INFO:root:Request: GET /result
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:49:28] "[35m[1mGET /result?MaryamF&model_name=par&prediction_r="Error:%20The%20feature%20names%20should%20match%20those%20that%20were%20passed%20during%20fit.\\nFeature%20names%20unseen%20at%20fit%20time:\\n-%202P1570_4:215FC029.OUT\\nFeature%20names%20seen%20at%20fit%20time,%20yet%20now%20missing:\\n-%203V1105_2:311LT005.PNT\\n"&model_filename=par_20240215194504 HTTP/1.1[0m" 500 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:49:28] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:49:48] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:49:54] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: GET /cre_dict
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:50:00] "GET /cre_dict?model_name=ada&model_filename=ada_20240215194504 HTTP/1.1" 200 -
+INFO:root:Request: GET /static/style.css
+INFO:root:Request: GET /static/user_icon.jpg
+INFO:root:Request: GET /static/flask_app_script.js
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:50:00] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:50:00] "[36mGET /static/user_icon.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:50:00] "[36mGET /static/flask_app_script.js HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:50:00] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: POST /store_session
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:50:04] "POST /store_session HTTP/1.1" 200 -
+INFO:root:Request: POST /predict
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:50:11] "POST /predict HTTP/1.1" 200 -
+INFO:root:Request: GET /result
+INFO:root:Request: GET /result
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:50:11] "[35m[1mGET /result?undefined&model_name=ada&prediction_r="Error:%20The%20feature%20names%20should%20match%20those%20that%20were%20passed%20during%20fit.\\nFeature%20names%20unseen%20at%20fit%20time:\\n-%202P1570_4:215FC029.OUT\\nFeature%20names%20seen%20at%20fit%20time,%20yet%20now%20missing:\\n-%203V1105_2:311LT005.PNT\\n"&model_filename=ada_20240215194504 HTTP/1.1[0m" 500 -
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:50:11] "[35m[1mGET /result?MaryamF&model_name=ada&prediction_r="Error:%20The%20feature%20names%20should%20match%20those%20that%20were%20passed%20during%20fit.\\nFeature%20names%20unseen%20at%20fit%20time:\\n-%202P1570_4:215FC029.OUT\\nFeature%20names%20seen%20at%20fit%20time,%20yet%20now%20missing:\\n-%203V1105_2:311LT005.PNT\\n"&model_filename=ada_20240215194504 HTTP/1.1[0m" 500 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:50:11] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:51:04] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:51:37] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:51:40] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:51:58] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:52:06] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: GET /train
+INFO:root:Request to /train endpoint received
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:52:09] "GET /train HTTP/1.1" 200 -
+INFO:root:Request: GET /static/style.css
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:52:09] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /static/flask_app_script.js
+INFO:root:Request: GET /static/user_icon.jpg
+INFO:root:Request: GET /get_target_columns
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:52:09] "[36mGET /static/flask_app_script.js HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /static/train_script.js
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:52:09] "[36mGET /static/user_icon.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:52:09] "[31m[1mGET /get_target_columns HTTP/1.1[0m" 405 -
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:52:09] "[36mGET /static/train_script.js HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:52:09] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: POST /train_models
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:52:55] "POST /train_models HTTP/1.1" 200 -
+INFO:root:Request: GET /gmodels
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:52:55] "GET /gmodels HTTP/1.1" 200 -
+INFO:root:Request: GET /static/style.css
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:52:55] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /static/user_icon.jpg
+INFO:root:Request: GET /static/flask_app_script.js
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:52:55] "[36mGET /static/user_icon.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:52:55] "[36mGET /static/flask_app_script.js HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /get_models
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:52:55] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:52:55] "GET /get_models HTTP/1.1" 200 -
+INFO:root:Request: GET /cre_dict
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:53:34] "GET /cre_dict?model_name=DecisionTreeRegressor&model_filename=DecisionTreeRegressor_20240215195238 HTTP/1.1" 200 -
+INFO:root:Request: GET /static/style.css
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:53:34] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /static/flask_app_script.js
+INFO:root:Request: GET /static/user_icon.jpg
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:53:34] "[36mGET /static/flask_app_script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:53:34] "[36mGET /static/user_icon.jpg HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:53:34] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: POST /store_session
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:53:42] "POST /store_session HTTP/1.1" 200 -
+INFO:root:Request: POST /predict
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:53:49] "POST /predict HTTP/1.1" 200 -
+INFO:root:Request: GET /result
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:53:49] "GET /result?undefined&model_name=DecisionTreeRegressor&prediction_r={"Predictions":[14.875,24.2578125,14.158203129999999,14,12.00585938,14.875,24.2578125,14.158203129999999,14,12.00585938,14.875,24.2578125,14.158203129999999,14,12.00585938,14.875,24.2578125,14.158203129999999,14,12.00585938],"Probabilities":null}&model_filename=DecisionTreeRegressor_20240215195238 HTTP/1.1" 200 -
+INFO:root:Request: GET /result
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:53:49] "GET /result?MaryamF&model_name=DecisionTreeRegressor&prediction_r={"Predictions":[14.875,24.2578125,14.158203129999999,14,12.00585938,14.875,24.2578125,14.158203129999999,14,12.00585938,14.875,24.2578125,14.158203129999999,14,12.00585938,14.875,24.2578125,14.158203129999999,14,12.00585938],"Probabilities":null}&model_filename=DecisionTreeRegressor_20240215195238 HTTP/1.1" 200 -
+INFO:root:Request: GET /static/result_script.js
+INFO:root:Request: GET /static/style.css
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:53:49] "GET /static/result_script.js HTTP/1.1" 200 -
+INFO:root:Request: GET /static/user_icon.jpg
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:53:49] "[36mGET /static/user_icon.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:53:49] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 19:53:50] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 20:00:40] "[35m[1mPOST /train_models HTTP/1.1[0m" 500 -
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 20:00:45] "POST /train_models HTTP/1.1" 200 -
+INFO:root:Request: GET /gmodels
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 20:00:45] "GET /gmodels HTTP/1.1" 200 -
+INFO:root:Request: GET /static/style.css
+INFO:root:Request: GET /static/user_icon.jpg
+INFO:root:Request: GET /static/flask_app_script.js
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 20:00:45] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 20:00:45] "[36mGET /static/user_icon.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 20:00:45] "[36mGET /static/flask_app_script.js HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /get_models
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 20:00:45] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 20:00:45] "GET /get_models HTTP/1.1" 200 -
+INFO:root:Request: GET /deploy_setup
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 20:31:54] "GET /deploy_setup?username=MaryamF&model_filename=DecisionTreeRegressor_20240215195238 HTTP/1.1" 200 -
+INFO:root:Request: GET /static/style.css
+INFO:root:Request: GET /static/user_icon.jpg
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 20:31:54] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 20:31:54] "[36mGET /static/user_icon.jpg HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 20:31:54] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: POST /deploy/MaryamF/DecisionTreeRegressor_20240215195238
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 20:32:00] "POST /deploy/MaryamF/DecisionTreeRegressor_20240215195238 HTTP/1.1" 200 -
+INFO:root:Request: GET /DecisionTreeRegressor_20240215195238_MaryamF
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 20:32:23] "[31m[1mGET /DecisionTreeRegressor_20240215195238_MaryamF HTTP/1.1[0m" 405 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.4 - - [15/Feb/2024 20:32:24] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: GET /cre_dict
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 20:38:31] "GET /cre_dict?model_name=et&model_filename=et_20240215194317 HTTP/1.1" 200 -
+INFO:root:Request: GET /static/style.css
+INFO:root:Request: GET /static/user_icon.jpg
+INFO:root:Request: GET /static/flask_app_script.js
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 20:38:31] "[36mGET /static/user_icon.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 20:38:31] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 20:38:31] "[36mGET /static/flask_app_script.js HTTP/1.1[0m" 304 -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 20:38:31] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+INFO:root:Request: POST /store_session
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 20:38:41] "POST /store_session HTTP/1.1" 200 -
+INFO:root:Request: POST /predict
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 20:38:47] "POST /predict HTTP/1.1" 200 -
+ERROR:werkzeug:172.20.10.5 - - [15/Feb/2024 20:38:47] code 414, message Request-URI Too Long
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 20:38:47] "[35m[1m[0m" HTTPStatus.REQUEST_URI_TOO_LONG -
+ERROR:werkzeug:172.20.10.5 - - [15/Feb/2024 20:38:47] code 414, message Request-URI Too Long
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 20:38:47] "[35m[1m[0m" HTTPStatus.REQUEST_URI_TOO_LONG -
+INFO:root:Request: GET /favicon.ico
+INFO:werkzeug:172.20.10.5 - - [15/Feb/2024 20:38:47] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -

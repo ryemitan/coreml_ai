@@ -1,0 +1,166 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fa7407;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    color: #f4f7f7;
+    padding: 20px 0;
+}
+
+/* Form Styles */
+form {
+    background-color: #efbc02;
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 10px;
+}
+
+label {
+    font-weight: bold;
+    color: #f4f7f7;
+}
+
+input[type="file"] {
+    margin: 5px 0;
+}
+
+select, button {
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #f94402;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #a83207;
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #f94402;
+    border: 1px solid #ccc;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #f94402;
+}
+
+th {
+    background-color: #f94402;
+    color: #fff;
+}
+
+/* Status Message Styles */
+#statusMessage {
+    text-align: center;
+    color: #fff;
+    font-weight: bold;
+    margin: 10px;
+}
+
+/* Fetch Models Button Style */
+#fetchModelsButton {
+    background-color: #f94402;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+#fetchModelsButton:hover {
+    background-color: #731f01;
+}
+
+/* Result Styles */
+#result {
+    margin: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+}
+
+#progressContainer {
+    position: relative;
+    height: 20px; /* Adjust the height as needed */
+    overflow: hidden;
+}
+
+#progressLine {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-bottom: 1px dashed #000; /* Dotted line style */
+    animation: moveDottedLine 2s linear infinite; /* Adjust animation duration as needed */
+}
+
+@keyframes moveDottedLine {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+#notification {
+    margin-top: 20px; /* Adjust the margin as needed */
+}
+
+
+/* Add this to your styles */
+.user-profile {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    background-color: #ea7106;
+    padding: 10px;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.user-profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.username {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.menu {
+    display: none;
+    flex-direction: column;
+}
+
+.user-profile:hover .menu {
+    display: flex;
+    position: absolute;
+    top: 50px; /* Adjust as needed */
+    right: 0;
+    background-color: #e48203;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.menu a {
+    text-decoration: none;
+    color: #5c0101;
+    margin-bottom: 5px;
+}

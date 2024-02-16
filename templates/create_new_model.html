@@ -1,0 +1,157 @@
+{% extends 'FE_App.html' %}
+
+{% block content %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Project</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        main {
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #333;
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Create New Project</h1>
+
+    <div>
+        <button onclick="showCreateForm()">Create New Project</button>
+        <button onclick="showExistingForm()">Use Existing Project</button>
+    </div>
+
+    <form id="createProjectForm" action="/create_project" method="POST" style="display: none;">
+        <label for="project_name">Project Name:</label>
+        <input type="text" id="project_name" name="project_name" required>
+
+        <label for="projectDescription">Project Description:</label>
+        <textarea id="projectDescription" name="projectDescription" rows="4" required></textarea>
+
+        <!-- <button type="submit">Create Project</button> -->
+        <button type="button" onclick="createProject(true)">Create Project</button>
+        <p id="error-message" style="color: red;"></p>
+    </form>
+
+    <form id="existingProjectForm" style="display: none;">
+        <label for="existingProject">Select Existing Project:</label>
+        <select id="existingProject" name="existingProject">
+            <option value="" disabled selected>Select Existing Project</option>
+            {% for project in existingProjects %}
+                <option value="{{ project }}">{{ project }}</option>
+            {% endfor %}
+        </select>
+
+        <button type="button" onclick="createProject(true)">Use Existing Project</button>
+        <p id="existing-error-message" style="color: red;"></p>
+    </form>
+
+    <script>
+        function showCreateForm() {
+            document.getElementById("createProjectForm").style.display = "block";
+            document.getElementById("existingProjectForm").style.display = "none";
+        }
+
+        function showExistingForm() {
+            document.getElementById("createProjectForm").style.display = "none";
+            document.getElementById("existingProjectForm").style.display = "block";
+        }
+
+        function createProject(useExistingProject = false) {
+            event.preventDefault();
+
+            const projectNameInput = document.getElementById("project_name");
+            
+            const existingProjectInput = document.getElementById("existingProject");
+            const usernameSpan = document.querySelector("body > div.user-profile > span");
+
+
+            const projectName = projectNameInput.value.trim();  // Trim any leading or trailing spaces
+            console.log(projectName)
+            const existingProject = existingProjectInput.value.trim();
+            const username = usernameSpan.innerText.trim();
+
+            const chosenProjectName = useExistingProject !== "" ? existingProject : projectName;
+           
+
+            const form = document.createElement("form");
+            form.method = "POST";
+            // Choose the correct action based on whether it's a new or existing project
+            if (useExistingProject) {
+                form.action = "/train";
+                form.appendChild(createHiddenInput("project_name", chosenProjectName));
+            } else {
+                form.action = "/train";
+                form.appendChild(createHiddenInput("project_name", chosenProjectName));
+            }
+
+            form.appendChild(createHiddenInput("username", username));
+
+            document.body.appendChild(form);
+            form.submit();
+        }
+
+        function createHiddenInput(name, value) {
+            const input = document.createElement("input");
+            input.type = "hidden";
+            input.name = name;
+            input.value = value;
+            return input;
+        }
+    </script>
+
+    <!-- Display selected values -->
+    <p id="selected-username"></p>
+    <p id="selected-chosen-project"></p>
+
+{% endblock %}

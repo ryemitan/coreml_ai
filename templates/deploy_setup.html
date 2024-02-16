@@ -1,0 +1,199 @@
+<!-- templates/pre_dict.html -->
+{% extends 'FE_App.html' %}
+
+{% block content %}
+    <h1>Deploy Model API</h1>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #b86506;
+                margin: 0;
+                padding: 20px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+    
+            form {
+                display: none; /* Hide the form by default */
+                width: 60%;
+                margin: 20px auto;
+                background-color: #e77e05;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(163, 3, 3, 0.1);
+            }
+    
+            label, input {
+                display: block;
+                width: 100%;
+                margin-bottom: 16px;
+            }
+    
+            button {
+                background-color: #cc7d06;
+                color: #fff;
+                padding: 10px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+    
+            button:hover {
+                background-color: #221901;
+            }
+    
+            #payload-section {
+                margin-top: 20px;
+                background-color: #f9f9f9;
+                padding: 20px;
+                border-radius: 8px;
+            }
+    
+            #payload-details {
+                font-weight: bold;
+                margin-bottom: 10px;
+            }
+    
+            #api-link-section {
+                display: none;
+                margin-top: 20px;
+                background-color: #f9f9f9;
+                padding: 20px;
+                border-radius: 8px;
+            }
+        </style>
+    </head>
+    <body>
+    
+        <!-- Payload details section -->
+        <div id="payload-section">
+            <h1>Deploy Model API</h1>
+            <!-- Display Model Name -->
+            <p style="text-align: center; color: white; font-weight: bold; animation: blinker 1s linear infinite;">Model Name: {{ request.args.get('model_name') }}</p>
+            <h3>Payload Details</h3>
+            <p id="payload-details">User Name: <span id="payload_user_name">{{ username }}</span></p>
+            <p id="payload-details">Model Filename: <span id="payload_model_filename"></span></p>
+            <p id="payload-details">Folder Path: <span id="payload_model_folder_path"></span></p>
+    
+            <!-- Deploy button in the payload section -->
+            <button type="button" onclick="deployModel()">Deploy Model</button>
+        </div>
+    
+        <!-- API Link Section -->
+        <div id="api-link-section">
+            <h3>API Link</h3>
+            <p>API link: <a id="api-link-element" href="#" target="_blank"></a></p>
+            <button onclick="navigateToApi()">Go to API</button>
+        </div>
+    
+        <script>
+            // Function to get URL parameter by name
+            function getURLParameter(name) {
+                const urlParams = new URLSearchParams(window.location.search);
+                return urlParams.get(name);
+            }
+    
+            // Function to display model filename
+            function displayModelFilename() {
+                const modelFilename = getURLParameter('model_filename');
+                const modelFilenameElement = document.getElementById('payload_model_filename');
+                if (modelFilenameElement) {
+                    modelFilenameElement.textContent = modelFilename;
+                }
+            }
+    
+            // Function to set default model folder path
+            function setDefaultModelFolderPath() {
+                const defaultModelFolderPath = '\\trained_models\\'; // Set your default folder path here
+                const modelFolderPathElement = document.getElementById('payload_model_folder_path');
+                if (modelFolderPathElement) {
+                    modelFolderPathElement.textContent = defaultModelFolderPath;
+                }
+            }
+    
+            // Call the function on page load
+            displayModelFilename();
+            setDefaultModelFolderPath();
+    
+            const apiLinkElement = document.getElementById('api-link-element');
+            const apiLinkSection = document.getElementById('api-link-section');
+
+            function navigateToApi() {
+                const apiLink = apiLinkElement.textContent;
+                const payloadUserName = document.getElementById('payload_user_name').textContent;
+                const payloadModelFilename = document.getElementById('payload_model_filename').textContent;
+                const payloadModelFolderPath = document.getElementById('payload_model_folder_path').textContent;
+
+                // Construct the URL with parameters
+                const url = `/api?api_link=${encodeURIComponent(apiLink)}&username=${encodeURIComponent(payloadUserName)}&model_filename=${encodeURIComponent(payloadModelFilename)}&model_folder_path=${encodeURIComponent(payloadModelFolderPath)}`;
+
+                // Navigate to the API page
+                window.location.href = url;
+            }
+    
+            function deployModel() {
+                // Extract relevant data from the page
+                const urlParams = new URLSearchParams(window.location.search);
+                const modelFilename = urlParams.get('model_filename');
+    
+                // Declare username and modelEndpoint
+                let username;
+                let modelEndpoint;
+    
+                const handleModelEndpoint = () => {
+                    // Redirect to the result page with the prediction result
+                    modelEndpoint = `${modelFilename}_${username}`;
+                };
+    
+                const usernameElement = urlParams.get('username');
+    
+                if (usernameElement) {
+                    username = usernameElement;
+                    console.log('Username:', username);
+                    handleModelEndpoint();
+                } else {
+                    console.error('Username element not found.');
+                    handleModelEndpoint();
+                }
+    
+                fetch(`/deploy/${username}/${modelFilename}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (data && data.error) {
+                        console.error('Error:', data.error);
+                    } else {
+                        const baseUrl = window.location.origin
+                        const solutionEndpoint = {baseUrl};  // Replace with your actual solution endpoint
+                        console.log('API:',`${solutionEndpoint}/${data.message}`);
+                        const apiLink = `${solutionEndpoint}/${data.message}`;
+                        console.log('API LINK:', apiLink);
+                     
+                        apiLinkElement.textContent = apiLink;
+                        apiLinkElement.href = apiLink;
+                        apiLinkElement.addEventListener('click', function(event) {
+                            event.preventDefault();
+                            // Navigate to api.html when the link is clicked
+                            // window.location.href = 'api.html';
+                        });
+                        apiLinkSection.style.display = 'block';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+            }
+        </script>
+    
+
+{% endblock %}

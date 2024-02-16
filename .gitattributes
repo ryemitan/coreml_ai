@@ -1,0 +1,8 @@
+*.psd filter=lfs diff=lfs merge=lfs -text
+*.exe filter=lfs diff=lfs merge=lfs -text
+*.pkl filter=lfs diff=lfs merge=lfs -text
+*.dll filter=lfs diff=lfs merge=lfs -text
+*.lib filter=lfs diff=lfs merge=lfs -text
+venv/Lib/site-packages/torch/lib/torch_cpu.dll filter=lfs diff=lfs merge=lfs -text
+venv/Lib/site-packages/kaleido/executable/bin/kaleido.exe filter=lfs diff=lfs merge=lfs -text
+venv/Lib/site-packages/torch/lib/dnnl.lib filter=lfs diff=lfs merge=lfs -text
